@@ -1,7 +1,5 @@
 import numpy as np
 import cmath
-import matplotlib.pyplot as plt
-import numpy.typing as npt
 
 Rc = 5.9e3
 Xm = 5.78e3
