@@ -57,16 +57,29 @@ class _8341_xfmr():
     def current_check(self, i_line, c_i):
         """
         Gives notice if i_line will exceed current rating
+        arguments,
+        i_line : line current
+        c_i    : line overcurrent factor
+        
+        returns,
+        flag   : true for overcurrent status, else false
         """
         res = not(i_line < c_i*self.i_rated)
-        print(res)
         return res
         
     def voltage_check(self, vp, c_vo, c_vu):
         """
         Gives notice if primary voltage is over or undervoltage
+        arguments,
+        v_p    : primary voltage
+        c_vu   : undervoltage factor
+        c_vo   : overvoltage factor
+        
+        returns,
+        v_over    : true for overvoltage  status, else false
+        v_under   : true for undervoltage status, else false
         """
-        v_over = not(vp > c_vu * self.v_rated)
-        v_under = not(vp < c_vo * self.v_rated)
-        print(v_over, v_under)
+        v_over = vp > c_vu * self.v_rated
+        v_under = vp < c_vo * self.v_rated
+        return v_over, v_under
 
